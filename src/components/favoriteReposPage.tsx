@@ -30,10 +30,11 @@ const FavoriteReposPage = () => {
             spacing={2}
           >
             <Link to="/">
-              <IconButton edge="end" aria-label="add-to-fav">
+              <IconButton edge="end">
                 <HomeIcon />
               </IconButton>
             </Link>
+
             <Typography level="h1" textAlign="center">
               Favorite Github Repos
             </Typography>
