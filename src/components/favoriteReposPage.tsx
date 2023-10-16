@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useLazyQuery, useQuery, useReactiveVar } from "@apollo/client";
+import React, { useMemo } from "react";
+import { useReactiveVar } from "@apollo/client";
 import { Link } from "react-router-dom";
+
 import Typography from "@mui/joy/Typography";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
@@ -11,9 +12,10 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import HomeIcon from "@mui/icons-material/Home";
 import IconButton from "@mui/material/IconButton";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import HomeIcon from "@mui/icons-material/Home";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import {

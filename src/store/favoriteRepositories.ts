@@ -36,11 +36,11 @@ const toggleFavorite = (repo: GithubRepository) => {
   return favoriteRepos({ ...allRepos, [repo.id]: { ...repo, rating: 0 } });
 };
 
-const setRating = (id: string, rating: number) => {
+const rate = (id: string, rating: number) => {
   const allRepos = favoriteRepos();
   if (isFavorite(id)) {
     return favoriteRepos({ ...allRepos, [id]: { ...allRepos[id], rating } });
   }
 };
 
-export { favoriteRepos, addToFavorites, isFavorite, toggleFavorite, setRating };
+export { favoriteRepos, addToFavorites, isFavorite, toggleFavorite, rate };
