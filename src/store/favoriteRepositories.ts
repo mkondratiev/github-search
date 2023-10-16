@@ -43,4 +43,4 @@ const rate = (id: string, rating: number) => {
   }
 };
 
-export { favoriteRepos, addToFavorites, isFavorite, toggleFavorite, rate };
+export { favoriteRepos, addToFavorites, toggleFavorite, rate, isFavorite };
