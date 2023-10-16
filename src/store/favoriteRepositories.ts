@@ -8,7 +8,7 @@ export interface GithubRepository
     "id" | "name" | "nameWithOwner" | "description" | "url" | "homepageUrl"
   > {
   owner: Pick<RepositoryOwner, "avatarUrl">;
-  rating: number;
+  rating?: number;
 }
 
 type FavoriteReposState = Record<string, GithubRepository>;
@@ -33,7 +33,7 @@ const toggleFavorite = (repo: GithubRepository) => {
     return getFavoriteRepos(omited);
   }
 
-  return getFavoriteRepos({ ...allRepos, [repo.id]: repo });
+  return getFavoriteRepos({ ...allRepos, [repo.id]: { ...repo, rating: 0 } });
 };
 
 const setRating = (id: string, rating: number) => {
