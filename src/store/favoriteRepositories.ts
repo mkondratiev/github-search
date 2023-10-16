@@ -13,40 +13,34 @@ export interface GithubRepository
 
 type FavoriteReposState = Record<string, GithubRepository>;
 
-const getFavoriteRepos: ReactiveVar<FavoriteReposState> =
+const favoriteRepos: ReactiveVar<FavoriteReposState> =
   makeVar<FavoriteReposState>({});
 
 const isFavorite = (id: string) => {
-  const allRepos = getFavoriteRepos();
+  const allRepos = favoriteRepos();
   return id in allRepos;
 };
 
 const addToFavorites = (newRepo: GithubRepository) => {
-  const allRepos = getFavoriteRepos();
-  getFavoriteRepos({ ...allRepos, [newRepo.id]: newRepo });
+  const allRepos = favoriteRepos();
+  favoriteRepos({ ...allRepos, [newRepo.id]: newRepo });
 };
 
 const toggleFavorite = (repo: GithubRepository) => {
-  const allRepos = getFavoriteRepos();
+  const allRepos = favoriteRepos();
   if (isFavorite(repo.id)) {
     const omited = omit(allRepos, [repo.id]);
-    return getFavoriteRepos(omited);
+    return favoriteRepos(omited);
   }
 
-  return getFavoriteRepos({ ...allRepos, [repo.id]: { ...repo, rating: 0 } });
+  return favoriteRepos({ ...allRepos, [repo.id]: { ...repo, rating: 0 } });
 };
 
 const setRating = (id: string, rating: number) => {
-  const allRepos = getFavoriteRepos();
+  const allRepos = favoriteRepos();
   if (isFavorite(id)) {
-    return getFavoriteRepos({ ...allRepos, [id]: { ...allRepos[id], rating } });
+    return favoriteRepos({ ...allRepos, [id]: { ...allRepos[id], rating } });
   }
 };
 
-export {
-  addToFavorites,
-  getFavoriteRepos,
-  isFavorite,
-  toggleFavorite,
-  setRating,
-};
+export { favoriteRepos, addToFavorites, isFavorite, toggleFavorite, setRating };

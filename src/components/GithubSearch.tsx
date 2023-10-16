@@ -21,7 +21,7 @@ import Alert from "@mui/material/Alert";
 
 import { SEARCH_FOR_REPO } from "../queries/repository";
 import {
-  getFavoriteRepos,
+  favoriteRepos,
   toggleFavorite,
   isFavorite,
 } from "../store/favoriteRepositories";
@@ -29,10 +29,12 @@ import {
 const GithubSearch = () => {
   const [query, setQuery] = useState("");
   const [lastQuery, setLastQuery] = useState("");
-  const favoriteRepos = useReactiveVar(getFavoriteRepos);
+
+  const allFavoriteRepos = useReactiveVar(favoriteRepos);
+  const favoriteReposCount = Object.keys(allFavoriteRepos).length;
+
   const [search, { data, loading, error, called }] =
     useLazyQuery(SEARCH_FOR_REPO);
-  const favoriteReposCount = Object.keys(favoriteRepos).length;
   const hasNoResults =
     called &&
     !loading &&

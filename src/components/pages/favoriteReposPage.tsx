@@ -17,17 +17,17 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import {
-  getFavoriteRepos,
+  favoriteRepos,
   toggleFavorite,
   isFavorite,
   setRating,
 } from "../../store/favoriteRepositories";
 
 const FavoriteReposPage = () => {
-  const favoriteRepos = useReactiveVar(getFavoriteRepos);
-  const favoriteReposAsList = useMemo(
-    () => Object.values(favoriteRepos),
-    [favoriteRepos]
+  const allFavoriteRepos = useReactiveVar(favoriteRepos);
+  const allFavoriteReposAsList = useMemo(
+    () => Object.values(allFavoriteRepos),
+    [allFavoriteRepos]
   );
 
   return (
@@ -58,7 +58,7 @@ const FavoriteReposPage = () => {
               bgcolor: "background.paper",
             }}
           >
-            {favoriteReposAsList?.map((node) => {
+            {allFavoriteReposAsList?.map((node) => {
               return (
                 <React.Fragment key={node.id}>
                   <ListItem
