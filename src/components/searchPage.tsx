@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import GithubSearch from "../GithubSearch";
+import GithubSearch from "./githubSearch";
 
 const SearchPage = () => {
   return (

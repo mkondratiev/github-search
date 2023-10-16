@@ -21,7 +21,7 @@ import {
   toggleFavorite,
   isFavorite,
   setRating,
-} from "../../store/favoriteRepositories";
+} from "../store/favoriteRepositories";
 
 const FavoriteReposPage = () => {
   const allFavoriteRepos = useReactiveVar(favoriteRepos);
